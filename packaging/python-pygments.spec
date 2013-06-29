@@ -9,7 +9,7 @@ Group:          Development/Libraries
 License:        BSD
 URL:            http://pygments.org/
 Source0:        %{name}-%{version}.tar.gz
-Source1001: packaging/python-pygments.manifest 
+Source1001: python-pygments.manifest 
 
 BuildArch:      noarch
 BuildRequires:  python-devel, python-setuptools
@@ -43,10 +43,10 @@ cp %{SOURCE1001} .
 
 %if 0%{?suse_version}
 %files -f INSTALLED_FILES
-%manifest python-pygments.manifest
+%manifest %{name}.manifest
 %else
 %files
-%manifest python-pygments.manifest
+%manifest %{name}.manifest
 %{python_sitelib}/*
 %endif
 # For noarch packages: sitelib
