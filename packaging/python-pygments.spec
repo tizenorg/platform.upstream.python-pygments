@@ -35,20 +35,11 @@ cp %{SOURCE1001} .
 
 %install
 
-%if 0%{?suse_version}
-%{__python} setup.py install --prefix=%{_prefix} --root=%{buildroot} --record-rpm=INSTALLED_FILES  
-%else
 %{__python} setup.py install -O1 --skip-build --root %{buildroot} --prefix=%{_prefix}
-%endif
 
-%if 0%{?suse_version}
-%files -f INSTALLED_FILES
-%manifest %{name}.manifest
-%else
 %files
 %manifest %{name}.manifest
 %{python_sitelib}/*
-%endif
 # For noarch packages: sitelib
 %{_bindir}/pygmentize
 
