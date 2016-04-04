@@ -28,6 +28,9 @@ markup.
 
 
 %build
+export CFLAGS+=" -fvisibility=hidden"
+  export CXXFLAGS+=" -fvisibility=hidden"
+  
 cp %{SOURCE1001} .
 %{__python} setup.py build
 %{__sed} -i 's/\r//' LICENSE
